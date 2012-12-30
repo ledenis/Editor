@@ -7,6 +7,10 @@ document.onreadystatechange = function() {
 		isHtmlMode = !isHtmlMode;
 		setHtmlMode(isHtmlMode);
 	};
+	
+	document.getElementById('bold').onclick = function() {
+		frameContent.document.execCommand('bold');
+	};
 };
 
 function setHtmlMode(mode) {
