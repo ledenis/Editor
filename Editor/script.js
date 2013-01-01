@@ -19,9 +19,10 @@ function setHtmlMode(mode) {
 		// show the HTML text
 		content = frameContent.document.body.innerHTML;
 		frameContent.document.body.innerText = content;
+		frameContent.document.body.textContent = content;
 	}
 	else { // Text mode
-		content = frameContent.document.body.innerText;
+		content =  frameContent.document.body.textContent || frameContent.document.body.innerText;
 		frameContent.document.body.innerHTML = content;
 	}
 }
