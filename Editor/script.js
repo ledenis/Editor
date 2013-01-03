@@ -1,7 +1,10 @@
 var isHtmlMode = false;
+var frameDoc; // frame.document
+var frameWin; // frame.window
 
 document.onreadystatechange = function() {
-	frameContent.document.designMode = "On";
+	frameDoc = frameContent.document;
+	frameDoc.designMode = "On";
 	
 	document.getElementById('switchMode').onclick = function() {
 		isHtmlMode = !isHtmlMode;
@@ -17,12 +20,12 @@ function setHtmlMode(mode) {
 	var content = '';
 	if (mode) { // HTML mode
 		// show the HTML text
-		content = frameContent.document.body.innerHTML;
-		frameContent.document.body.innerText = content;
-		frameContent.document.body.textContent = content;
+		content = frameDoc.body.innerHTML;
+		frameDoc.body.innerText = content;
+		frameDoc.body.textContent = content;
 	}
 	else { // Text mode
-		content =  frameContent.document.body.textContent || frameContent.document.body.innerText;
-		frameContent.document.body.innerHTML = content;
+		content =  frameDoc.body.textContent || frameDoc.body.innerText;
+		frameDoc.body.innerHTML = content;
 	}
 }
