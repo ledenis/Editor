@@ -19,6 +19,10 @@ document.onreadystatechange = function() {
 	document.getElementById('bold').onclick = function() {
 		insertBold();
 	};
+	
+	document.getElementById('ulist').onclick = function() {
+		insertUnorderedList();
+	};
 };
 
 function setHtmlMode(mode) {
@@ -52,4 +56,8 @@ function insertBold() {
 		
 		range.pasteHTML('<strong>'+ range.htmlText+'</strong>');
 	}
+}
+
+function insertUnorderedList() {
+	frameDoc.execCommand('insertunorderedlist', false, null);
 }
