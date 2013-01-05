@@ -7,6 +7,10 @@ document.onreadystatechange = function() {
 	frameWin = frameContent.window;
 	frameDoc.designMode = "On";
 	
+	// force to use paragraph tags (FF and Chrome)
+	frameWin.focus();
+	frameDoc.execCommand('formatblock', false, 'p');
+	
 	document.getElementById('switchMode').onclick = function() {
 		isHtmlMode = !isHtmlMode;
 		setHtmlMode(isHtmlMode);
